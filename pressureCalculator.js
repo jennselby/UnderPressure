@@ -40,15 +40,15 @@ export default class PressureCalculator extends Component {
   }
 
   render() {
-    var universalGasConstant = 8.31; // joules / (moles * Kelvins)
+    var universalGasConstant = 0.082; // (liters * atmospheres) / (moles * Kelvin)
     var pressure = (this.state.numberMoles * universalGasConstant * this.state.temperature) / this.state.volume;
     return (
       <View style={styles.container}>
         <Text style={styles.output}>
-          Pressure: {pressure}
+          Pressure: {pressure} Atmospheres
         </Text>
         <Text style={styles.textBox}>
-          Input Volume:
+          Input Volume (Liters):
         </Text>
         <TextInput
           style={styles.textInput}    
@@ -68,7 +68,7 @@ export default class PressureCalculator extends Component {
           underlineColorAndroid='transparent'
         />
         <Text style={styles.textBox}>
-          Input Temperature:
+          Input Temperature (Kelvin):
         </Text>
         <TextInput
           style={styles.textInput}    
