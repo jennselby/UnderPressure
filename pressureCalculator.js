@@ -6,7 +6,6 @@ import {
   TextInput,
   View
 } from 'react-native';
-import PressureDisplay from './pressureDisplay.js'
 
 export default class PressureCalculator extends Component {
   constructor(props) {
@@ -41,13 +40,13 @@ export default class PressureCalculator extends Component {
   }
 
   render() {
+    var universalGasConstant = 8.31; // joules / (moles * Kelvins)
+    var pressure = (this.state.numberMoles * universalGasConstant * this.state.temperature) / this.state.volume;
     return (
       <View style={styles.container}>
-        <PressureDisplay
-          volume={this.state.volume}
-          numberMoles={this.state.numberMoles}
-          temperature={this.state.temperature}
-        />
+        <Text style={styles.output}>
+          Pressure: {pressure}
+        </Text>
         <Text style={styles.textBox}>
           Input Volume:
         </Text>
@@ -103,6 +102,12 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: 'left',
     margin: 10,
+  },
+  output: {
+    fontSize: 20,
+    textAlign: 'left',
+    margin: 10,
+    color: '#6600ff',
   },
 });
 
