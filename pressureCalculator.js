@@ -21,7 +21,7 @@ export default class PressureCalculator extends Component {
     var number = parseInt(value);
     // nan stands for "not a number". This is checking to see if this number is invalid.
     // if it is, use 1 instead.
-    if (value === '' || number === NaN) {
+    if (value === '' || isNaN(number)) {
         number = 1;
     }
     return number;
