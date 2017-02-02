@@ -1,0 +1,3 @@
+rootProject.name = 'UnderPressure'
+
+include ':app'
